@@ -10,4 +10,12 @@ public class FirstWebApplication {
 		SpringApplication.run(FirstWebApplication.class, args);
 	}
 
+
+	/**
+	 * 1.第一步要干嘛？ 先弄好项目配置
+	 * 先添加数据库中对应的实体类
+	 *
+	 * 查询所有视频接口
+	 *
+	 */
 }
