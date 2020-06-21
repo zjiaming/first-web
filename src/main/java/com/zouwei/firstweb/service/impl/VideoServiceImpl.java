@@ -1,6 +1,7 @@
 package com.zouwei.firstweb.service.impl;
 
 import com.zouwei.firstweb.domain.Video;
+import com.zouwei.firstweb.domain.VideoBanner;
 import com.zouwei.firstweb.mapper.VideoMapper;
 import com.zouwei.firstweb.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +18,15 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public List<Video> listVideo() {
         return videoMapper.listVideo();
+    }
+
+    @Override
+    public List<VideoBanner> listBanner() {
+        return videoMapper.listVideoBanner();
+    }
+
+    @Override
+    public Video findVideoDetailById(int videoId) {
+        return videoMapper.findVideoDetailById(videoId);
     }
 }

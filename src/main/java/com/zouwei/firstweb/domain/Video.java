@@ -1,6 +1,7 @@
 package com.zouwei.firstweb.domain;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -27,6 +28,16 @@ public class Video {
     private Date createTime;
 
     private Double point;
+
+    private List<Chapter> chapterList;
+
+    public List<Chapter> getChapterList() {
+        return chapterList;
+    }
+
+    public void setChapterList(List<Chapter> chapterList) {
+        this.chapterList = chapterList;
+    }
 
     @Override
     public String toString() {
