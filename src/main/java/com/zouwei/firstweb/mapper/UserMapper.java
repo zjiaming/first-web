@@ -1,9 +1,10 @@
 package com.zouwei.firstweb.mapper;
 
-import com.zouwei.firstweb.domain.User;
+import com.zouwei.firstweb.model.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
     int save(User user);
 
-    User findUserByPhone(String phone);
+    User findUserByPhone(@Param("phone") String phone);
 }

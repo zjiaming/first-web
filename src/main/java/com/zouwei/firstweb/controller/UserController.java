@@ -19,7 +19,7 @@ public class UserController {
 
     /**
      * 用户注册
-     * 使用 requestBody 限制客服端使用 json数据上传，不填写这个可以使用其他的格式上传数据
+     * 使用 requestBody 限制客户端端使用 json数据上传，不填写这个可以使用其他的格式上传数据
      *
      * @param userInfo
      * @return

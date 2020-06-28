@@ -1,7 +1,7 @@
 package com.zouwei.firstweb.mapper;
 
-import com.zouwei.firstweb.domain.Video;
-import com.zouwei.firstweb.domain.VideoBanner;
+import com.zouwei.firstweb.model.entity.Video;
+import com.zouwei.firstweb.model.entity.VideoBanner;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

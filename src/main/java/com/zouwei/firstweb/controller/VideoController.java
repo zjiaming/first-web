@@ -1,6 +1,6 @@
 package com.zouwei.firstweb.controller;
 
-import com.zouwei.firstweb.domain.Video;
+import com.zouwei.firstweb.model.entity.Video;
 import com.zouwei.firstweb.service.VideoService;
 import com.zouwei.firstweb.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;

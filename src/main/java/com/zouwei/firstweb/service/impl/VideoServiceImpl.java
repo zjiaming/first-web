@@ -1,7 +1,7 @@
 package com.zouwei.firstweb.service.impl;
 
-import com.zouwei.firstweb.domain.Video;
-import com.zouwei.firstweb.domain.VideoBanner;
+import com.zouwei.firstweb.model.entity.Video;
+import com.zouwei.firstweb.model.entity.VideoBanner;
 import com.zouwei.firstweb.mapper.VideoMapper;
 import com.zouwei.firstweb.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;

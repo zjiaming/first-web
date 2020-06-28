@@ -12,5 +12,11 @@
 
     </insert>
 
+    <select id="findUserByPhone" resultType="User">
+
+        select  * from user where phone =#{phone}
+
+
+    </select>
 
 </mapper>

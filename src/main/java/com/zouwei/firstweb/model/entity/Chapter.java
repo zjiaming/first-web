@@ -1,4 +1,4 @@
-package com.zouwei.firstweb.domain;
+package com.zouwei.firstweb.model.entity;
 
 
 import java.util.Date;

@@ -1,8 +1,7 @@
 package com.zouwei.firstweb.service.impl;
 
-import com.zouwei.firstweb.domain.User;
+import com.zouwei.firstweb.model.entity.User;
 import com.zouwei.firstweb.mapper.UserMapper;
-import com.zouwei.firstweb.mapper.VideoMapper;
 import com.zouwei.firstweb.service.UserService;
 import com.zouwei.firstweb.utils.CommonUtils;
 import org.apache.ibatis.annotations.Param;
