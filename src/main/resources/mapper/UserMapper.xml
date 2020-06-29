@@ -19,4 +19,10 @@
 
     </select>
 
+    <select id="findByPhoneAndPwd" resultType="User">
+
+        select * from user where phone =#{phone} and pwd =#{pwd}
+
+    </select>
+
 </mapper>

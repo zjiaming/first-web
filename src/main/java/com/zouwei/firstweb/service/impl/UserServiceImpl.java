@@ -4,6 +4,8 @@ import com.zouwei.firstweb.model.entity.User;
 import com.zouwei.firstweb.mapper.UserMapper;
 import com.zouwei.firstweb.service.UserService;
 import com.zouwei.firstweb.utils.CommonUtils;
+import com.zouwei.firstweb.utils.JWTUtils;
+import io.jsonwebtoken.Jwts;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,5 +54,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserByPhone(@Param("phone") String phone) {
         return userMapper.findUserByPhone(phone);
+    }
+
+    @Override
+    public String findByPhoneAndPwd(String phone, String pwd) {
+        //注册的时候使用的是MD5加密的，所以这里也要加密
+        User user = userMapper.findByPhoneAndPwd(phone, CommonUtils.MD5(pwd));
+        if (user == null) {
+            return null;
+        }
+
+        //登录成功返回 token 给前端
+        String token = JWTUtils.geneJsonWebToken(user);
+
+
+        return token;
     }
 }
