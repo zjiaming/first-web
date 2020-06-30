@@ -79,12 +79,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int updateUserName(Map<String, String> params) {
+    public int updateUserName(Map<String, Object> params) {
         if (params.containsKey("id") && params.containsKey("name")) {
 
             //数据库中的是integer,获取到的是string,所以在这里需要进行转换
-            String id = params.get("id");
-            return userMapper.updateUserName(Integer.valueOf(id), params.get("name"));
+            //Map<String,Object> params 前端上传的数据类型要正确，不能int类型上传一个String类型，要不然会报错
+            Integer id = (Integer) params.get("id");
+            return userMapper.updateUserName(id, (String) params.get("name"));
         }
 
         return -1;

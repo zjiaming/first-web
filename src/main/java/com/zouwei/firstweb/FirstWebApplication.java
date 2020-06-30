@@ -19,7 +19,7 @@ public class FirstWebApplication {
 	 * 2.先添加数据库中对应的实体类,在domain里面创建实体
 	 * 3.创建对应的Mapper
 	 *
-	 * 查询所有视频接口
+	 * 数据共享的话使用分布式缓存，不需要的话使用本地缓存
 	 *
 	 */
 }

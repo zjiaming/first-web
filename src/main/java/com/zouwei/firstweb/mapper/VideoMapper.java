@@ -26,4 +26,7 @@ public interface VideoMapper {
      * 通过视频Id获取视频数据
      */
     Video findVideoDetailById(@Param("video_id") int videoId);
+
+
+    Video selectById(@Param("video_id") int videoId);
 }

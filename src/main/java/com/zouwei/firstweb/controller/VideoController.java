@@ -48,4 +48,10 @@ public class VideoController {
         Video video = videoService.findVideoDetailById(videoId);
         return JsonData.buildSuccess(video);
     }
+
+    @GetMapping("select_by_id")
+    public JsonData selectById(@RequestParam(value = "video_id", required = true) int videoId) {
+        Video video = videoService.selectById(videoId);
+        return JsonData.buildSuccess(video);
+    }
 }

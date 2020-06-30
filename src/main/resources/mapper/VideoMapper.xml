@@ -3,21 +3,35 @@
 <mapper namespace="com.zouwei.firstweb.mapper.VideoMapper">
 
 
-    <!--
-      查询video表中的所有数据
-     -->
+    <!-- 查询video表中的所有数据 -->
     <select id="listVideo" resultType="Video">
         select * from video
 
     </select>
 
-    <!--
-    asc代表的是升序，可以省略 desc代表的是降序
-    -->
+    <!--  asc代表的是升序，可以省略 desc代表的是降序 -->
     <select id="listVideoBanner" resultType="VideoBanner">
 
         select * from video_banner order by weight asc ;
 
+
+    </select>
+
+
+    <!-- 查询的时候不要使用 * 来查找，很耗性能-->
+    <!-- 定义常用的查询字段 -->
+    <sql id="base_video_field">
+
+        id,title,summary,cover_img
+
+    </sql>
+
+    <select id="selectById" resultType="Video">
+
+        select
+        <include refid="base_video_field"/>
+        from video
+        where id = #{video_id,jdbcType = INTEGER}
 
     </select>
 

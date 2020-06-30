@@ -29,4 +29,9 @@ public class VideoServiceImpl implements VideoService {
     public Video findVideoDetailById(int videoId) {
         return videoMapper.findVideoDetailById(videoId);
     }
+
+    @Override
+    public Video selectById(int videoId) {
+        return videoMapper.selectById( videoId);
+    }
 }

@@ -64,7 +64,7 @@ public class UserController {
      * 通过 id 修改用户名
      */
     @PostMapping("update_name")
-    public JsonData updateUserName(@RequestBody Map<String, String> params) {
+    public JsonData updateUserName(@RequestBody Map<String, Object> params) {
         int rows = userService.updateUserName(params);
         return rows == 1 ? JsonData.buildSuccess() : JsonData.buildError("更新用户名字失败");
     }

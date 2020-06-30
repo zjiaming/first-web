@@ -15,7 +15,7 @@ public interface UserService {
 
     int delete(String name);
 
-    int updateUserName(Map<String, String> userInfo);
+    int updateUserName(Map<String, Object> userInfo);
 
     int updateUser(User user);
 }

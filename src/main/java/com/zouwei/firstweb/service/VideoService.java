@@ -11,4 +11,6 @@ public interface VideoService {
     List<VideoBanner> listBanner();
 
     Video findVideoDetailById(int videoId);
+
+    Video selectById(int videoId);
 }
