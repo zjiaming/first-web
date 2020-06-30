@@ -12,4 +12,10 @@ public interface UserService {
 
     //这里不需要添加 params
     String findByPhoneAndPwd(String phone, String pwd);
+
+    int delete(String name);
+
+    int updateUserName(Map<String, String> userInfo);
+
+    int updateUser(User user);
 }

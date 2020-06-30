@@ -25,7 +25,9 @@ public class UserServiceImpl implements UserService {
     public int save(Map<String, String> userInfo) {
         User user = parseToUser(userInfo);
         if (user != null) {
-            return userMapper.save(user);
+            int lows = userMapper.save(user);
+            System.out.println("user--->id" + user.toString());
+            return 1;
         } else {
             return -1;
         }
@@ -69,5 +71,27 @@ public class UserServiceImpl implements UserService {
 
 
         return token;
+    }
+
+    @Override
+    public int delete(String name) {
+        return userMapper.delete(name);
+    }
+
+    @Override
+    public int updateUserName(Map<String, String> params) {
+        if (params.containsKey("id") && params.containsKey("name")) {
+
+            //数据库中的是integer,获取到的是string,所以在这里需要进行转换
+            String id = params.get("id");
+            return userMapper.updateUserName(Integer.valueOf(id), params.get("name"));
+        }
+
+        return -1;
+    }
+
+    @Override
+    public int updateUser(User user) {
+        return userMapper.updateUser(user);
     }
 }

@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zouwei.firstweb.mapper.UserMapper">
 
-    <!--TODO 插入数据是 parameterType-->
-    <insert id="save" parameterType="User">
+    <!-- 插入数据是 parameterType-->
+    <insert id="save" parameterType="User" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 
       INSERT INTO user (name,pwd,head_img,phone,create_time)
       values (#{name,jdbcType=VARCHAR},#{pwd,jdbcType=VARCHAR},
@@ -24,5 +24,58 @@
         select * from user where phone =#{phone} and pwd =#{pwd}
 
     </select>
+
+    <!--根据用户名去删除用户 name 对应的是数据库中的字段， names对应的是 UserMapper 中 params 写的别名-->
+    <delete id="delete">
+
+        delete  from user where name = #{names}
+
+    </delete>
+
+    <!--如果是复杂的对象，需要指定parameterType，简单的可以不指定-->
+    <!--根据id去修改用户名字-->
+    <update id="updateUserName" parameterType="java.util.Map">
+
+        update user set
+        name = #{name,jdbcType=VARCHAR}
+
+        where
+        id = #{id}
+
+    </update>
+
+    <!--    /* pwd = #{pwd,jdbcType=VARCHAR},
+            head_img = #{headImg,jdbcType=VARCHAR},
+            phone = #{phone,jdbcType=VARCHAR},
+            create_time = #{createTime,jdbcType=TIMESTAMP}*/-->
+
+
+    <!--TODO 注意点:只有包装对象才能有空
+        if 语句中的 test = "headImg" 是使用我们定义的实体类中的字段
+
+         <if test="实体类对应的字段名 !=null"> 数据库中的字段 = #{实体类对应的字段名,jdbcType=VARCHAR},</if>
+
+         != 中间不可以有空格
+    -->
+    <update id="updateUser" parameterType="User" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        update user
+        <trim prefix="set" suffixOverrides=",">
+
+            <if test="name !=null"> name = #{name,jdbcType=VARCHAR},</if>
+
+            <if test="pwd !=null"> pwd = #{pwd,jdbcType=VARCHAR},</if>
+
+            <if test="headImg !=null"> head_img = #{headImg,jdbcType=VARCHAR},</if>
+
+            <if test="phone !=null"> phone = #{phone,jdbcType=VARCHAR},</if>
+
+            <if test="createTime !=null"> create_time = #{createTime,jdbcType=TIMESTAMP},</if>
+
+        </trim>
+
+        where
+        id = #{id}
+
+    </update>
 
 </mapper>
