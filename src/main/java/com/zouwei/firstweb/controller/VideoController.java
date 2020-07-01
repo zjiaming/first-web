@@ -16,6 +16,12 @@ public class VideoController {
     @Autowired
     private VideoService videoService;
 
+    @RequestMapping("test")
+    public JsonData test() {
+        return JsonData.buildSuccess("RestTemplate");
+    }
+
+
     /**
      * 没有限定请求方法
      *

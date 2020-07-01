@@ -26,8 +26,10 @@ public class LoginInterceptor implements HandlerInterceptor {
      * @param request
      * @param response
      * @param handler
-     * @return
+     * @return true表示继续流程；false表示流程中断，不会继续调用其他的拦截器或处理器
      * @throws Exception
+     *
+     *
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
